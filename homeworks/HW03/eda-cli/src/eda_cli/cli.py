@@ -67,6 +67,8 @@ def report(
     sep: str = typer.Option(",", help="Разделитель в CSV."),
     encoding: str = typer.Option("utf-8", help="Кодировка файла."),
     max_hist_columns: int = typer.Option(6, help="Максимум числовых колонок для гистограмм."),
+    top_k_categories: int = typer.Option(5, help="Сколько top-значений выводить для категориальных признаков."),
+    title: Optional[str] = typer.Option(None, help="Заголовок отчёта. Если не указан, используется стандартный."),
 ) -> None:
     """
     Сгенерировать полный EDA-отчёт:
@@ -80,13 +82,14 @@ def report(
     out_root.mkdir(parents=True, exist_ok=True)
 
     df = _load_csv(Path(path), sep=sep, encoding=encoding)
+    report_title = title if title else "EDA-отчёт"
 
     # 1. Обзор
     summary = summarize_dataset(df)
     summary_df = flatten_summary_for_print(summary)
     missing_df = missing_table(df)
     corr_df = correlation_matrix(df)
-    top_cats = top_categories(df)
+    top_cats = top_categories(df, top_k=top_k_categories)
 
     # 2. Качество в целом
     quality_flags = compute_quality_flags(summary, missing_df)
@@ -102,7 +105,7 @@ def report(
     # 4. Markdown-отчёт
     md_path = out_root / "report.md"
     with md_path.open("w", encoding="utf-8") as f:
-        f.write(f"# EDA-отчёт\n\n")
+        f.write(f"# {report_title}\n\n")
         f.write(f"Исходный файл: `{Path(path).name}`\n\n")
         f.write(f"Строк: **{summary.n_rows}**, столбцов: **{summary.n_cols}**\n\n")
 
@@ -111,8 +114,10 @@ def report(
         f.write(f"- Макс. доля пропусков по колонке: **{quality_flags['max_missing_share']:.2%}**\n")
         f.write(f"- Слишком мало строк: **{quality_flags['too_few_rows']}**\n")
         f.write(f"- Слишком много колонок: **{quality_flags['too_many_columns']}**\n")
-        f.write(f"- Слишком много пропусков: **{quality_flags['too_many_missing']}**\n\n")
+        f.write(f"- Слишком много пропусков: **{quality_flags['too_many_missing']}**\n")
 
+        f.write(f"- Есть колонки с одинаковыми значениями: **{quality_flags['has_constant_columns']}**\n")
+        f.write(f"- Слишком много категориальных значений в колонках: **{quality_flags['has_high_cardinality_categoricals']}**\n\n")
         f.write("## Колонки\n\n")
         f.write("См. файл `summary.csv`.\n\n")
 
@@ -132,6 +137,7 @@ def report(
         if not top_cats:
             f.write("Категориальные/строковые признаки не найдены.\n\n")
         else:
+            f.write(f"Показаны топ-{top_k_categories} значений для каждой категориальной колонки.\n")
             f.write("См. файлы в папке `top_categories/`.\n\n")
 
         f.write("## Гистограммы числовых колонок\n\n")
