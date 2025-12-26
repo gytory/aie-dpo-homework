@@ -254,6 +254,47 @@ curl -X POST "http://127.0.0.1:8000/quality-from-csv" \
 - `dataset_shape` - реальные размеры датасета (`n_rows`, `n_cols`);
 - `latency_ms` - время обработки запроса.
 
+### 5. `POST /quality-flags-from-csv` – вывод флагов данного CSV-файла
+
+Эндпоинт принимает CSV-файл, дальше:
+
+- читает его в `pandas.DataFrame`;
+- вызывает функции из `eda_cli.core`:
+
+  - `summarize_dataset`,
+  - `missing_table`,
+  - `compute_quality_flags`;
+- возвращает полный набор флагов качества датасета по всем эвристикам.
+
+**Запрос:**
+
+```http
+POST /quality-flags-from-csv
+Content-Type: multipart/form-data
+file: <CSV-файл>
+
+Через Swagger:
+
+- в `/docs` открыть `POST /quality-from-csv`,
+- нажать `Try it out`,
+- выбрать файл (например, `data/example.csv`),
+- нажать `Execute`.
+
+**Пример вызова через `curl` (Linux/macOS/WSL):**
+
+```bash
+curl -X POST "http://127.0.0.1:8000/quality-flags-from-csv" \
+  -F "file=@data/example.csv"
+```
+Ответ будет содержать:
+
+- `flags` - полный набор флагов качества, включая:
+  - `too_few_rows` - слишком мало строк (< 100)
+  - `too_many_columns` - слишком много колонок (> 100)
+  - `max_missing_share` - максимальная доля пропусков (числовая метрика)
+  - `too_many_missing` - есть колонки с >50% пропусков
+  - `has_constant_columns` - есть колонки с одинаковыми значениями
+  - `has_high_cardinality_categoricals` - есть категориальные признаки с >10 уникальных значений
 ---
 
 ## Структура проекта (упрощённо)
