@@ -1,0 +1,23 @@
+{
+  "Архитектура": {
+    "type": "MLP",
+    "hidden_dims": [
+      256,
+      128
+    ],
+    "dropout_p": 0.0,
+    "use_batchnorm": true,
+    "num_classes": 47,
+    "input_dim": 784
+  },
+  "training_config": {
+    "optimizer": "Adam",
+    "learning_rate": 0.1,
+    "criterion": "CrossEntropyLoss",
+    "batch_size": 256,
+    "epochs": 20,
+    "early_stopping": 5
+  },
+  "dataset": "EMNIST",
+  "seed": 42
+}
