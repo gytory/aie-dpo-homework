@@ -1,0 +1,5 @@
+experiment_id,task,dataset,seed,split_summary,window_size,horizon,model_summary,features_summary,scaler,optimizer,lr,epochs_trained,best_val_mae,best_val_rmse,best_val_mape,test_mae,test_rmse,test_mape,notes
+B1,forecasting,S12-hw-dataset.csv,42,70/15/15 (train/val/test),28,1,str,"target + lags(1,7,14) + rolling(7) + calendar",StandardScaler,Adam,0.001,100,,,,6.366645336151123,8.10787897147063,4.168898105621338,Naive baseline (last value)
+B2,forecasting,S12-hw-dataset.csv,42,70/15/15 (train/val/test),28,1,str,"target + lags(1,7,14) + rolling(7) + calendar",StandardScaler,Adam,0.001,0,,,,162.01296394490478,230.16444135654015,5.784360590937212,MovingAverage(7)
+B3,forecasting,S12-hw-dataset.csv,42,70/15/15 (train/val/test),28,1,str,"target + lags(1,7,14) + rolling(7) + calendar",StandardScaler,Adam,0.001,0,,,,9.25640869140625,12.585610156357637,6.546379089355469,ridge-lag-featuers
+R1,forecasting,S12-hw-dataset.csv,42,70/15/15 (train/val/test),28,1,str,"target + lags(1,7,14) + rolling(7) + calendar",StandardScaler,Adam,0.001,30,,,,5.481070518493652,7.1024401702562985,3.5690228939056396,MovingAverage(7)
