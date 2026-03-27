@@ -55,3 +55,6 @@ logs/
 *.tmp
 *.bak
 *.old
+
+data/
+stl10_binary/

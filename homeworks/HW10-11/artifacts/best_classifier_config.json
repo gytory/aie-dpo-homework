@@ -1,0 +1,17 @@
+{
+  "model_name": "ResNet18",
+  "pretrained": true,
+  "finetune_layers": "layer4+fc",
+  "optimizer": "Adam",
+  "lr": 0.001,
+  "momentum": 0.0,
+  "weight_decay": 0.0,
+  "dataset": "STL10",
+  "seed": 42,
+  "fast_mode": false,
+  "epochs_trained": 3,
+  "best_val_accuracy": 0.943,
+  "best_val_loss": 0.215,
+  "test_loss": 0.228,
+  "test_accuracy": 0.939
+}
