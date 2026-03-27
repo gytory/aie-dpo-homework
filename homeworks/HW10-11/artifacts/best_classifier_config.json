@@ -1,5 +1,8 @@
 {
   "model_name": "ResNet18",
+  "transforms": "ToTensor",
+  "preprocess": "Z-Normalization",
+  "augmentation": false,
   "pretrained": true,
   "finetune_layers": "layer4+fc",
   "optimizer": "Adam",
