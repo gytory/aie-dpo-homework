@@ -37,6 +37,7 @@ eggs/
 .coverage
 .coverage.*
 htmlcov/
+kitti_data/
 
 # Журналы
 *.log
