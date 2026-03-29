@@ -2,20 +2,18 @@
   "experiment_id": "R1",
   "model": "gru-forecast",
   "architecture": {
-    "window_size": 30,
+    "window_size": 28,
     "hidden_size": 64,
     "num_layers": 2,
-    "dropout": 0.2,
-    "bidirectional": false
+    "dropout": 0.2
   },
   "training": {
+    "seed": 42,
     "batch_size": 32,
-    "learning_rate": 0.001,
-    "epochs": 100,
+    "learning_rate": 0.0005,
+    "epochs": 30,
     "optimizer": "Adam",
-    "loss": "MSELoss",
-    "seed": 42
+    "loss": "MSELoss"
   },
-  "scaler": "StandardScaler",
-  "best_val_loss": 0.0234
+  "scaler": "StandardScaler"
 }
