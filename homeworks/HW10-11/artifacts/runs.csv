@@ -1,7 +1,7 @@
 experiment_id,task,dataset,seed,model_summary,optimizer,lr,epochs_trained,best_val_accuracy,test_accuracy,precision,recall,mean_iou,notes
-C1,classification,STL10,42,"(96,12) / ReLU / 0.0 / no batchnorm",Adam,0.001,4,0.514,0.5138,,,,
-C2,classification,STL10,42,"(96,12) / ReLU / 0.0 / no batchnorm / augmentations: RandomCrop, RandomInvert, GaussianBlur",Adam,0.001,4,0.514,0.569,,,,
-C3,classification,STL10,42,224 / head only,Adam,0.001,3,0.925,0.927,,,,
+C1,classification,STL10,42,"(96,12) / ReLU / 0.0 / no batchnorm",Adam,0.001,4,0.514,,,,,
+C2,classification,STL10,42,"(96,12) / ReLU / 0.0 / no batchnorm / augmentations: RandomCrop, RandomInvert, GaussianBlur",Adam,0.001,4,0.514,,,,,
+C3,classification,STL10,42,224 / head only,Adam,0.001,3,0.925,,,,,
 C4,classification,STL10,42,224 / head only/ fc + layer4,Adam,0.001,3,0.943,0.939,,,,
-V1,detection,KITTI,42,"Faster R-CNN with ResNet50 backbone, pretrained on COCO",SGD,0.005,10,,,0.625,0.0658,0.6667,"score_threshold=0.3, iou_thr=0.3, person class only"
-V2,detection,KITTI,42,"Faster R-CNN with ResNet50 backbone, pretrained on COCO",SGD,0.005,10,,,0.624, 0.065,0.666,"score_threshold=0.7, iou_thr=0.7, person class only"
+V1,detection,KITTI,42,"Faster R-CNN with ResNet50 backbone, pretrained on COCO",SGD,0.005,10,,,0.1249999999921875,0.024390243902141583,0.7064176797866821,"score_threshold=0.3, iou_thr=0.3, person class only"
+V2,detection,KITTI,42,"Faster R-CNN with ResNet50 backbone, pretrained on COCO",SGD,0.005,10,,,0.33333333327777775,0.024390243902141583,0.7064176797866821,"score_threshold=0.7, iou_thr=0.7, person class only"
