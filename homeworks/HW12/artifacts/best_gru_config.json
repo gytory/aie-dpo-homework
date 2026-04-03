@@ -1,8 +1,9 @@
 {
   "experiment_id": "R1",
   "model": "gru-forecast",
+  "seed": 42,
+  "window_size": 28,
   "architecture": {
-    "window_size": 28,
     "hidden_size": 64,
     "num_layers": 2,
     "dropout": 0.2
@@ -13,7 +14,8 @@
     "learning_rate": 0.0005,
     "epochs": 30,
     "optimizer": "Adam",
-    "loss": "MSELoss"
+    "loss": "MSELoss",
+    "scheduler": "ReduceLROnPlateau"
   },
   "scaler": "StandardScaler"
 }
