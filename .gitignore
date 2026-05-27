@@ -56,6 +56,5 @@ logs/
 *.tmp
 *.bak
 *.old
-
-data/
+homeworks/HW10-11/data
 stl10_binary/
