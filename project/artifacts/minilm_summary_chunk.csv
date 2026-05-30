@@ -1,0 +1,4 @@
+﻿config,similarity,chunk_size,overlap,precision,recall,mrr,map
+MiniLM_euclidean,euclidean,40,20,0.348,0.5644,0.7234,0.4294
+MiniLM_euclidean,euclidean,20,10,0.3613,0.5872,0.6429,0.4478
+MiniLM_euclidean,euclidean,10,5,0.3533,0.5756,0.6222,0.4334

@@ -1,0 +1,4 @@
+﻿config,similarity,chunk_size,precision,recall,mrr,map
+USER2_cosine,cosine,full,0.32,0.5217,0.7037,0.3936
+USER2_euclidean,euclidean,full,0.288,0.47,0.623,0.3461
+USER2_dot,dot,full,0.2147,0.35,0.4906,0.2474

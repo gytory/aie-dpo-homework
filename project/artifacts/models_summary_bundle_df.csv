@@ -1,0 +1,4 @@
+﻿model,config,similarity,mrr,precision,recall,map
+MiniLM,MiniLM_euclidean,euclidean,0.7234,0.348,0.5644,0.4294
+E5,E5_cosine,cosine,0.7126,0.3013,0.4922,0.374
+USER2,USER2_cosine,cosine,0.7037,0.32,0.5217,0.3936

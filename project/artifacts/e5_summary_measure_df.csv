@@ -1,0 +1,4 @@
+﻿config,similarity,chunk_size,precision,recall,mrr,map
+E5_cosine,cosine,40,0.3013,0.4922,0.7126,0.374
+E5_dot,dot,40,0.3013,0.4922,0.7126,0.374
+E5_euclidean,euclidean,40,0.3013,0.4922,0.7126,0.374

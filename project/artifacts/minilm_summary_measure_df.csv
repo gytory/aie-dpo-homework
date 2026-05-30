@@ -1,0 +1,4 @@
+﻿config,similarity,chunk_size,precision,recall,mrr,map
+MiniLM_euclidean,euclidean,full,0.348,0.5644,0.7234,0.4294
+MiniLM_cosine,cosine,full,0.3467,0.5628,0.7069,0.4299
+MiniLM_dot,dot,full,0.3347,0.545,0.6833,0.4075

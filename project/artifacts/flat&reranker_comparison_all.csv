@@ -1,0 +1,5 @@
+﻿config,reranker,mrr,precision,recall,map,latency_ms,dataset_type
+Flat,False,0.7069,0.3467,0.5628,0.4299,0.0533,clean (40 docs)
+Flat + Reranker,True,0.7142,0.1333,0.8683,0.5175,454.256,clean (40 docs)
+Flat,False,0.5912,0.276,0.4483,0.3275,0.0736,noisy (240 docs)
+Flat + Reranker,True,0.6058,0.1157,0.7528,0.3975,459.8489,noisy (240 docs)
