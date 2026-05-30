@@ -57,8 +57,6 @@ cd project
 
 python -m venv .venv
 
-.venv\Scripts\activate
-
 
 # Установить зависимости
 pip install --upgrade pip
