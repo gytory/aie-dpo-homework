@@ -71,21 +71,6 @@ pip install -r requirements.txt
 
 ## 4. Как запустить проект
 
-Опишите, как именно воспроизвести основные сценарии использования проекта.
-
-Примеры (заполните под свой случай):
-
-### 4.1. Запуск обучения модели
-
-```bash
-cd project
-source .venv/bin/activate      # при необходимости
-python -m src.train            # или другая команда
-```
-
-### 4.2. Запуск сервиса (API/веб-интерфейс)
-
-
 ```bash
 cd project
 uvicorn src.service:app --host 0.0.0.0 --port 8000 --reload
