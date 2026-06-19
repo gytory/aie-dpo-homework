@@ -85,9 +85,7 @@ async def startup():
     global embedder, index, df_chunks, startup_error
     
     try:
-        logger.info("="*50)
-        logger.info("ЗАПУСК СЕРВИСА")
-        logger.info("="*50)
+        logger.info("Запуск сервиса")
         
         logger.info("Проверка зависимостей...")
         if not check_and_install_dependencies():
